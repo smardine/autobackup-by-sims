@@ -1,0 +1,3 @@
+lancer le serveur sonar, 
+mettre en argument -X sonar:sonar dans un "external tools"
+run => attendre

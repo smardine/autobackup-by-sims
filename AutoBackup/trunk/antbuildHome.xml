@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project AutoBackup with Jar-in-Jar Loader">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="C:/Users/sims/Documents/workspace perso/AutoBackup/AutoBackup.jar">
+            <manifest>
+                <attribute name="Main-Class" value="org.eclipse.jdt.internal.jarinjarloader.JarRsrcLoader"/>
+                <attribute name="Rsrc-Main-Class" value="main.Main"/>
+                <attribute name="Class-Path" value="."/>
+                <attribute name="Rsrc-Class-Path" value="./ jaybird-full-2.1.6.jar mailapi.jar pop3.jar smtp.jar"/>
+            </manifest>
+            <zipfileset src="jar-in-jar-loader.zip"/>
+            <fileset dir="C:/Users/sims/Documents/workspace perso/AutoBackup/bin"/>
+            <zipfileset dir="C:\Users\sims\Documents\workspace perso\AutoBackup\lib" includes="jaybird-full-2.1.6.jar"/>
+            <zipfileset dir="C:\Users\sims\Documents\workspace perso\AutoBackup\lib" includes="mailapi.jar"/>
+            <zipfileset dir="C:\Users\sims\Documents\workspace perso\AutoBackup\lib" includes="pop3.jar"/>
+            <zipfileset dir="C:\Users\sims\Documents\workspace perso\AutoBackup\lib" includes="smtp.jar"/>
+        </jar>
+    </target>
+</project>
