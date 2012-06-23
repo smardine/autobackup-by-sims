@@ -2,10 +2,47 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.myorg</groupId>
-  <artifactId>Autobackup</artifactId>
-  <name>Autobackup</name>
-  <version>1.0</version>
+  <groupId>fr.simscorps</groupId>
+  <artifactId>autobackup</artifactId>
+  <name>autobackup</name>
+  <!-- Dans hudson, dans action a la suite du build, dans la partie sonar, dans propriete additionelles, ajouter
+   -DHUDSON_SVN_REVISION=${SVN_REVISION} -->
+  <version>1.99.${HUDSON_SVN_REVISION}</version>
+  <!-- les dependencies servent a rajouter les librairies exterieures au projet -->
+  <dependencies>
+   <dependency>   
+    <groupId>deps</groupId>
+	    <artifactId>dep1</artifactId>
+	    <version>0.1</version>
+	    <scope>system</scope>
+	    <systemPath>${basedir}/lib/jaybird-full-2.1.6.jar</systemPath>
+	 
+	</dependency>
+	<dependency>
+	<groupId>deps</groupId>
+		<artifactId>dep2</artifactId>
+		<version>0.2</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/mailapi.jar</systemPath>
+	</dependency>
+	<dependency>
+	<groupId>deps</groupId>
+		<artifactId>dep3</artifactId>
+		<version>0.2</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/pop3.jar</systemPath>
+	</dependency>
+	<dependency>
+	<groupId>deps</groupId>
+		<artifactId>dep4</artifactId>
+		<version>0.2</version>
+		<scope>system</scope>
+		<systemPath>${basedir}/lib/smtp.jar</systemPath>
+	</dependency>
+	
+  </dependencies>
+  
+  
   <build>
         <sourceDirectory>src</sourceDirectory>
         <outputDirectory>bin</outputDirectory>
@@ -16,14 +53,15 @@
               <configuration>
                   <source>1.5</source>
                   <target>1.5</target>
-                  <excludes>
+                   <excludes>
                       <exclude>**/*.*</exclude>
                   </excludes>
+                 
               </configuration>
            </plugin>
         </plugins>
   </build>
   <properties>
-  	<sonar.dynamicAnalysis>false</sonar.dynamicAnalysis>
+  	<sonar.dynamicAnalysis>false</sonar.dynamicAnalysis>  		
   </properties>
 </project>
